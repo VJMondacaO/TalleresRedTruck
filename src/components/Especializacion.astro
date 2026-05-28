@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import { whatsappLink } from '../config/site';
+import actrosImage from '../assets/especializacion/actros.webp';
 
 const bullets = [
   {
@@ -73,9 +75,12 @@ const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
         <div class="relative">
           <div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-brand-red/40 via-transparent to-transparent blur opacity-60"></div>
           <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-soft">
-            <img
-              src="https://placehold.co/900x700/0A0A0A/2563EB/png?text=Mercedes-Benz+Actros&font=inter"
+            <Image
+              src={actrosImage}
               alt="Camión Mercedes-Benz en revisión mecánica"
+              widths={[480, 720, 900]}
+              sizes="(max-width: 1024px) 90vw, 540px"
+              formats={['avif', 'webp']}
               class="w-full h-full object-cover"
               loading="lazy"
               decoding="async"

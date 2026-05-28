@@ -1,15 +1,21 @@
 ---
+import { Image } from 'astro:assets';
 import { site, whatsappLink } from '../config/site';
+import heroImage from '../assets/hero.png';
 ---
 
 <section id="top" class="relative overflow-hidden bg-black text-white">
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <img
-      src="/hero.png"
+    <Image
+      src={heroImage}
       alt=""
       class="h-full w-full object-contain opacity-70 scale-90"
       style="object-position: 10% center;"
+      widths={[640, 960, 1280, 1920]}
+      sizes="(max-width: 768px) 100vw, 80vw"
+      formats={['avif', 'webp']}
       loading="eager"
+      fetchpriority="high"
       decoding="async"
     />
     <div class="absolute inset-0 bg-gradient-to-l from-black via-black/70 to-transparent"></div>

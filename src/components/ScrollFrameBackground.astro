@@ -1,12 +1,22 @@
 ---
-const frameCount = 121;
+import { cdn } from '../lib/cdn';
+
+const frameCount = 59;
+// Generamos las URLs en build-time (no en runtime) para que cdn() resuelva
+// con import.meta.env durante el SSG.
+const avifFrames = Array.from({ length: frameCount }, (_, i) =>
+  cdn(`frames/motor/frame-${String(i + 1).padStart(4, '0')}.avif`)
+);
+const webpFrames = Array.from({ length: frameCount }, (_, i) =>
+  cdn(`frames/motor/frame-${String(i + 1).padStart(4, '0')}.webp`)
+);
 ---
 
 <section
   class="rt-frame-stage relative isolate bg-black text-white"
   data-frame-count={frameCount}
-  data-frame-path="/frames/motor/frame-"
-  data-frame-ext=".webp"
+  data-frames-avif={JSON.stringify(avifFrames)}
+  data-frames-webp={JSON.stringify(webpFrames)}
 >
   <div class="sticky top-0 h-screen overflow-hidden" aria-hidden="true">
     <canvas class="rt-frame-canvas absolute inset-0 h-full w-full"></canvas>
@@ -34,13 +44,26 @@ const frameCount = 121;
 
   if (stage && canvas && ctx) {
     const frameCount = Number(stage.dataset.frameCount || 1);
-    const framePath = stage.dataset.framePath || '/frames/motor/frame-';
-    const frameExt = stage.dataset.frameExt || '.webp';
+    const avifFrames = JSON.parse(stage.dataset.framesAvif || '[]') as string[];
+    const webpFrames = JSON.parse(stage.dataset.framesWebp || '[]') as string[];
+
+    // Feature detect AVIF una sola vez.
+    const supportsAvif = await (async () => {
+      try {
+        const probe = new Image();
+        probe.src =
+          'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAOcGl0bQAAAAAAAQAAAB5pbG9jAAAAAEQAAAEAAQAAAAEAAAEYAAAAHQAAACNpaW5mAAAAAAABAAAAFWluZmUCAAAAAAEAAGF2MDEAAAAARWlwcnAAAAAoaXBjbwAAABRpc3BlAAAAAAAAAAEAAAABAAAAEHBpeGkAAAAAAwgICAAAABdpcG1hAAAAAAAAAAEAAQIBgwAAAB5tZGF0EgAKBxgADlgADtAQ0AIyAaEMCw3sBAAA';
+        await probe.decode();
+        return true;
+      } catch {
+        return false;
+      }
+    })();
+
+    const frameUrls = supportsAvif ? avifFrames : webpFrames;
     const images: HTMLImageElement[] = [];
     const loadingFrames = new Set<number>();
     let currentFrame = 0;
-
-    const frameUrl = (index: number) => `${framePath}${String(index + 1).padStart(4, '0')}${frameExt}`;
 
     const resizeCanvas = () => {
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -71,12 +94,12 @@ const frameCount = 121;
     };
 
     const loadFrame = (index: number) => {
-      if (images[index] || loadingFrames.has(index)) return;
+      if (images[index] || loadingFrames.has(index) || !frameUrls[index]) return;
 
       loadingFrames.add(index);
       const image = new Image();
       image.decoding = 'async';
-      image.src = frameUrl(index);
+      image.src = frameUrls[index];
       image.onload = () => {
         loadingFrames.delete(index);
         if (index === currentFrame) drawFrame(index);
@@ -109,23 +132,41 @@ const frameCount = 121;
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    loadFrame(0);
-    preloadFrames();
+    // Diferimos la descarga hasta que el stage este a 1.5 viewports.
+    const startLoading = () => {
+      loadFrame(0);
+      preloadFrames();
 
-    if (!reduceMotion) {
-      ScrollTrigger.create({
-        trigger: stage,
-        start: 'top top',
-        end: 'bottom bottom',
-        scrub: true,
-        onUpdate: (self) => {
-          const nextFrame = Math.min(frameCount - 1, Math.round(self.progress * (frameCount - 1)));
-          if (nextFrame !== currentFrame) {
-            loadFrame(nextFrame);
-            drawFrame(nextFrame);
+      if (!reduceMotion) {
+        ScrollTrigger.create({
+          trigger: stage,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          onUpdate: (self) => {
+            const nextFrame = Math.min(frameCount - 1, Math.round(self.progress * (frameCount - 1)));
+            if (nextFrame !== currentFrame) {
+              loadFrame(nextFrame);
+              drawFrame(nextFrame);
+            }
+          },
+        });
+      }
+    };
+
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((e) => e.isIntersecting)) {
+            io.disconnect();
+            startLoading();
           }
         },
-      });
+        { rootMargin: '150% 0px 150% 0px' }
+      );
+      io.observe(stage);
+    } else {
+      startLoading();
     }
   }
 </script>

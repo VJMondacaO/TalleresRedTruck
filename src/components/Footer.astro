@@ -1,5 +1,6 @@
 ---
 import { site, whatsappLink } from '../config/site';
+import { cdn } from '../lib/cdn';
 
 const year = new Date().getFullYear();
 
@@ -26,13 +27,19 @@ const cols = [
 ---
 
 <footer class="relative bg-black/85 text-white backdrop-blur-sm border-t border-white/10 overflow-hidden">
-  <img
-    src="/logo-slow.gif"
-    alt=""
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
     aria-hidden="true"
     class="pointer-events-none select-none absolute bottom-0 left-0 w-[260px] sm:w-[340px] lg:w-[420px]"
     style="mix-blend-mode: screen; filter: brightness(1.2) contrast(1.15) saturate(1.05);"
-  />
+  >
+    <source src={cdn('logo/logo-loop.webm', { type: 'video' })} type="video/webm" />
+    <source src={cdn('logo/logo-loop.mp4', { type: 'video' })} type="video/mp4" />
+  </video>
   <div class="container-x py-16 relative">
     <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-5">

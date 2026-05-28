@@ -1,45 +1,52 @@
 ---
+import { Image } from 'astro:assets';
 import { site } from '../config/site';
+import post1 from '../assets/instagram/post-1.webp';
+import post2 from '../assets/instagram/post-2.webp';
+import post3 from '../assets/instagram/post-3.webp';
+import post4 from '../assets/instagram/post-4.webp';
+import post5 from '../assets/instagram/post-5.webp';
+import post6 from '../assets/instagram/post-6.webp';
 
 const posts = [
   {
     id: 1,
-    image: 'https://placehold.co/600x600/0B1E3F/ffffff/png?text=Actros+en+taller&font=inter',
+    image: post1,
     caption: 'Actros en mantención, listo para volver a trabajar con seguridad.',
     likes: 248,
     comments: 18,
   },
   {
     id: 2,
-    image: 'https://placehold.co/600x600/061331/ffffff/png?text=Diagnostico+Xentry&font=inter',
+    image: post2,
     caption: 'Diagnóstico electrónico para detectar fallas antes de cambiar piezas innecesarias.',
     likes: 312,
     comments: 24,
   },
   {
     id: 3,
-    image: 'https://placehold.co/600x600/1E3A8A/ffffff/png?text=Atego+listo&font=inter',
+    image: post3,
     caption: 'Atego revisado por embrague y caja, con trabajo coordinado paso a paso.',
     likes: 187,
     comments: 12,
   },
   {
     id: 4,
-    image: 'https://placehold.co/600x600/3B5BA8/ffffff/png?text=Repuestos+OEM&font=inter',
+    image: post4,
     caption: 'Selección de repuestos y componentes según disponibilidad, compatibilidad y necesidad del camión.',
     likes: 421,
     comments: 36,
   },
   {
     id: 5,
-    image: 'https://placehold.co/600x600/0B1E3F/ffffff/png?text=Servicio+en+ruta&font=inter',
+    image: post5,
     caption: 'Cuando un camión se detiene, el diagnóstico correcto ahorra tiempo y evita gastos demás.',
     likes: 564,
     comments: 48,
   },
   {
     id: 6,
-    image: 'https://placehold.co/600x600/C8102E/ffffff/png?text=Equipo+Red+Truck&font=inter',
+    image: post6,
     caption: 'Red Truck: experiencia Mercedes-Benz, trabajo serio y trato directo con el dueño del camión.',
     likes: 612,
     comments: 52,
@@ -83,9 +90,12 @@ const posts = [
           >
             <a href={site.social.instagram} target="_blank" rel="noopener" class="block group">
               <div class="aspect-square overflow-hidden bg-black relative">
-                <img
+                <Image
                   src={p.image}
                   alt={p.caption}
+                  widths={[280, 400]}
+                  sizes="320px"
+                  formats={['avif', 'webp']}
                   loading="lazy"
                   decoding="async"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
