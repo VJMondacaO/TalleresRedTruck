@@ -1,0 +1,121 @@
+---
+import { site, whatsappLink } from '../config/site';
+
+const year = new Date().getFullYear();
+
+const cols = [
+  {
+    title: 'Servicios',
+    links: [
+      { label: 'Mantención preventiva', href: '#servicios' },
+      { label: 'Diagnóstico electrónico', href: '#servicios' },
+      { label: 'Reparación de motor', href: '#servicios' },
+      { label: 'Atención 24/7', href: '#servicios' },
+    ],
+  },
+  {
+    title: 'Empresa',
+    links: [
+      { label: 'Cobertura nacional', href: '#cobertura' },
+      { label: 'Especialización MB', href: '#mercedes' },
+      { label: 'Instagram', href: '#instagram' },
+      { label: 'Contacto', href: '#contacto' },
+    ],
+  },
+];
+---
+
+<footer class="bg-brand-darker text-white">
+  <div class="container-x py-16">
+    <div class="grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-5">
+        <a href="#top" class="inline-flex items-center gap-3" aria-label={site.name}>
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white text-brand-dark">
+            <i class="pi pi-truck text-lg" aria-hidden="true"></i>
+          </span>
+          <span class="font-extrabold text-lg">
+            Talleres <span class="text-brand-red">Red Truck</span>
+          </span>
+        </a>
+        <p class="mt-4 text-sm text-white/70 max-w-md">
+          Taller mecánico especializado en camiones Mercedes-Benz, con cobertura en las 16 regiones
+          de Chile.
+        </p>
+
+        <div class="mt-6 flex items-center gap-3">
+          <a
+            href={site.social.instagram}
+            target="_blank"
+            rel="noopener"
+            aria-label="Instagram"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+          >
+            <i class="pi pi-instagram" aria-hidden="true"></i>
+          </a>
+          <a
+            href={site.social.facebook}
+            target="_blank"
+            rel="noopener"
+            aria-label="Facebook"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+          >
+            <i class="pi pi-facebook" aria-hidden="true"></i>
+          </a>
+          <a
+            href={whatsappLink()}
+            target="_blank"
+            rel="noopener"
+            aria-label="WhatsApp"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+          >
+            <i class="pi pi-whatsapp" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      {cols.map((c) => (
+        <div class="lg:col-span-2">
+          <p class="text-xs uppercase tracking-wider font-semibold text-white/60">{c.title}</p>
+          <ul class="mt-4 space-y-2">
+            {c.links.map((l) => (
+              <li>
+                <a href={l.href} class="text-sm text-white/80 hover:text-white">
+                  {l.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+      <div class="lg:col-span-3">
+        <p class="text-xs uppercase tracking-wider font-semibold text-white/60">Contacto</p>
+        <ul class="mt-4 space-y-3 text-sm text-white/80">
+          <li class="flex gap-2">
+            <i class="pi pi-whatsapp text-brand-red mt-0.5" aria-hidden="true"></i>
+            <a href={whatsappLink()} target="_blank" rel="noopener" class="hover:text-white">
+              {site.whatsapp.display}
+            </a>
+          </li>
+          <li class="flex gap-2">
+            <i class="pi pi-phone text-brand-red mt-0.5" aria-hidden="true"></i>
+            <a href={`tel:${site.phone}`} class="hover:text-white">{site.phone}</a>
+          </li>
+          <li class="flex gap-2">
+            <i class="pi pi-envelope text-brand-red mt-0.5" aria-hidden="true"></i>
+            <a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a>
+          </li>
+          <li class="flex gap-2">
+            <i class="pi pi-map-marker text-brand-red mt-0.5" aria-hidden="true"></i>
+            <span>{site.address}</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/60">
+      <p>© {year} {site.name}. Todos los derechos reservados.</p>
+      <p>Mercedes-Benz® es una marca registrada de sus respectivos propietarios. Sitio no oficial.</p>
+    </div>
+  </div>
+</footer>
