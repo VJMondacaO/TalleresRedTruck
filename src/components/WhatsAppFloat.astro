@@ -1,0 +1,17 @@
+---
+import { whatsappLink } from '../config/site';
+---
+
+<a
+  href={whatsappLink()}
+  target="_blank"
+  rel="noopener"
+  aria-label="Escríbenos por WhatsApp"
+  class="fixed bottom-5 right-5 z-50 inline-flex items-center gap-3 rounded-full bg-[#25D366] text-white pl-4 pr-5 py-3 shadow-soft hover:bg-[#1ebe5c] transition-transform hover:scale-105"
+>
+  <span class="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/15">
+    <span class="absolute inset-0 rounded-full bg-white/30 animate-ping opacity-60"></span>
+    <i class="pi pi-whatsapp text-xl relative" aria-hidden="true"></i>
+  </span>
+  <span class="hidden sm:inline font-semibold text-sm">WhatsApp</span>
+</a>
