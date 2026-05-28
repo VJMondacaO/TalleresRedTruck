@@ -1,8 +1,6 @@
 ---
 const stats = [
-  { value: '+20', suffix: 'años', label: 'de experiencia técnica' },
-  { value: '16', suffix: 'regiones', label: 'con cobertura activa' },
-  { value: '+5.000', suffix: 'camiones', label: 'atendidos hasta hoy' },
+  { value: '16', suffix: 'regiones', label: 'donde llegamos' },
   { value: '24/7', suffix: '', label: 'asistencia en ruta' },
 ];
 
@@ -34,14 +32,14 @@ const zonas = [
       <div class="lg:col-span-5">
         <p class="eyebrow !text-brand-red">Cobertura nacional</p>
         <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold leading-tight">
-          De Arica a Punta Arenas. Donde esté tu camión, llegamos nosotros.
+          De Arica a Punta Arenas.
         </h2>
         <p class="mt-4 text-white/75">
-          Operamos en las 16 regiones de Chile con red de técnicos móviles y centros de servicio
-          asociados. Coordinamos por WhatsApp y despachamos repuestos al punto que necesites.
+          Atendemos en taller en Santiago y coordinamos servicio en ruta a lo largo del país. Si tu
+          camión quedó parado, escríbenos por WhatsApp y vemos cómo llegamos.
         </p>
 
-        <dl class="mt-10 grid grid-cols-2 gap-6">
+        <dl class="mt-10 grid grid-cols-2 gap-4 max-w-md">
           {stats.map((s) => (
             <div class="rounded-lg border border-white/10 bg-white/5 p-5">
               <dt class="text-xs uppercase tracking-wider text-white/60">{s.label}</dt>
