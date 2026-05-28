@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
+import ScrollFrameBackground from '../components/ScrollFrameBackground.astro';
 import Servicios from '../components/Servicios.astro';
 import Cobertura from '../components/Cobertura.astro';
 import Especializacion from '../components/Especializacion.astro';
@@ -15,12 +16,14 @@ import WhatsAppFloat from '../components/WhatsAppFloat.astro';
   <Navbar />
   <main>
     <Hero />
-    <Servicios />
-    <Cobertura />
-    <Especializacion />
-    <Instagram />
-    <Contacto />
+    <ScrollFrameBackground>
+      <Servicios />
+      <Cobertura />
+      <Especializacion />
+      <Instagram />
+      <Contacto />
+      <Footer />
+    </ScrollFrameBackground>
   </main>
-  <Footer />
   <WhatsAppFloat />
 </Layout>
