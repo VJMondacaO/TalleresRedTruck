@@ -38,12 +38,7 @@ const cols = [
       <div class="lg:col-span-5">
         <a href="#top" class="inline-flex items-center gap-3 group" aria-label={site.name}>
           <span class="inline-flex h-14 w-14 items-center justify-center overflow-visible -my-2">
-            <img
-              src="/logo-slow.gif"
-              alt=""
-              class="h-full w-full object-contain"
-              style="mix-blend-mode: screen; filter: brightness(1.25) contrast(1.2) saturate(1.1);"
-            />
+            <img src="/icono.png" alt="" class="h-full w-full object-contain" />
           </span>
           <span class="font-extrabold text-lg">
             Talleres <span class="text-brand-red">Red Truck</span>
@@ -127,7 +122,18 @@ const cols = [
 
     <div class="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/60">
       <p>© {year} {site.name}. Todos los derechos reservados.</p>
-      <p>Mercedes-Benz® es una marca registrada de sus respectivos propietarios. Talleres Red Truck es un taller independiente, no oficial.</p>
+      <p>
+        Desarrollado por
+        <a
+          href="https://victormondaca.com/"
+          target="_blank"
+          rel="noopener"
+          class="font-semibold text-white/85 hover:text-brand-red transition-colors"
+        >
+          victormondaca.com
+        </a>
+      </p>
+      <p class="basis-full text-white/40">Mercedes-Benz® es una marca registrada de sus respectivos propietarios. Talleres Red Truck es un taller independiente, no oficial.</p>
     </div>
   </div>
 </footer>
