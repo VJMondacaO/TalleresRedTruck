@@ -8,7 +8,11 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "build:frames": "node scripts/build-frames.mjs",
+    "build:logo": "node scripts/build-logo-video.mjs",
+    "build:placeholders": "node scripts/build-placeholders.mjs",
+    "build:assets": "npm run build:frames && npm run build:logo && npm run build:placeholders"
   },
   "dependencies": {
     "@astrojs/tailwind": "^5.1.4",
