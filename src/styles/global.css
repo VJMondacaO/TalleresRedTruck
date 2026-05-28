@@ -19,7 +19,7 @@
   ::-webkit-scrollbar { width: 10px; height: 10px; }
   ::-webkit-scrollbar-track { background: #0A0A0A; }
   ::-webkit-scrollbar-thumb { background: #1F1F1F; border-radius: 6px; }
-  ::-webkit-scrollbar-thumb:hover { background: #DC2626; }
+  ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
 }
 
 @layer components {
@@ -30,7 +30,7 @@
     @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-all duration-200 disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-brand-red text-white hover:bg-brand-redDeep shadow-[0_8px_30px_-12px_rgba(220,38,38,0.65)] hover:shadow-[0_8px_30px_-6px_rgba(220,38,38,0.85)];
+    @apply btn bg-brand-red text-white hover:bg-brand-redDeep shadow-[0_8px_30px_-12px_rgba(37,99,235,0.65)] hover:shadow-[0_8px_30px_-6px_rgba(37,99,235,0.85)];
   }
   .btn-wtz {
     @apply btn bg-[#25D366] text-black hover:bg-[#1ebe5c];

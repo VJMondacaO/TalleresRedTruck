@@ -10,14 +10,14 @@ const cols = [
       { label: 'Mantención preventiva', href: '#servicios' },
       { label: 'Diagnóstico electrónico', href: '#servicios' },
       { label: 'Reparación de motor', href: '#servicios' },
-      { label: 'Atención 24/7', href: '#servicios' },
+      { label: 'Sistema eléctrico', href: '#servicios' },
     ],
   },
   {
     title: 'Empresa',
     links: [
-      { label: 'Cobertura nacional', href: '#cobertura' },
-      { label: 'Especialización MB', href: '#mercedes' },
+      { label: 'Cobertura', href: '#cobertura' },
+      { label: 'Especialización Mercedes-Benz', href: '#mercedes' },
       { label: 'Instagram', href: '#instagram' },
       { label: 'Contacto', href: '#contacto' },
     ],
@@ -25,21 +25,33 @@ const cols = [
 ];
 ---
 
-<footer class="bg-black/85 text-white backdrop-blur-sm border-t border-white/10">
-  <div class="container-x py-16">
+<footer class="relative bg-black/85 text-white backdrop-blur-sm border-t border-white/10 overflow-hidden">
+  <img
+    src="/logo-slow.gif"
+    alt=""
+    aria-hidden="true"
+    class="pointer-events-none select-none absolute bottom-0 left-0 w-[260px] sm:w-[340px] lg:w-[420px]"
+    style="mix-blend-mode: screen; filter: brightness(1.2) contrast(1.15) saturate(1.05);"
+  />
+  <div class="container-x py-16 relative">
     <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-5">
         <a href="#top" class="inline-flex items-center gap-3 group" aria-label={site.name}>
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-brand-red text-white shadow-[0_0_20px_-4px_rgba(220,38,38,0.6)] group-hover:bg-brand-redDeep transition-colors">
-            <i class="pi pi-truck text-lg" aria-hidden="true"></i>
+          <span class="inline-flex h-14 w-14 items-center justify-center overflow-visible -my-2">
+            <img
+              src="/logo-slow.gif"
+              alt=""
+              class="h-full w-full object-contain"
+              style="mix-blend-mode: screen; filter: brightness(1.25) contrast(1.2) saturate(1.1);"
+            />
           </span>
           <span class="font-extrabold text-lg">
             Talleres <span class="text-brand-red">Red Truck</span>
           </span>
         </a>
         <p class="mt-4 text-sm text-white/70 max-w-md">
-          Taller mecánico especializado en camiones Mercedes-Benz, con cobertura en las 16 regiones
-          de Chile.
+          Taller mecánico especializado en camiones Mercedes-Benz, ubicado en San Rafael, Región
+          del Maule. Recibimos camiones de trabajo desde distintas zonas de Chile.
         </p>
 
         <div class="mt-6 flex items-center gap-3">
@@ -115,7 +127,7 @@ const cols = [
 
     <div class="mt-14 pt-8 border-t border-white/10 flex flex-wrap items-center justify-between gap-4 text-xs text-white/60">
       <p>© {year} {site.name}. Todos los derechos reservados.</p>
-      <p>Mercedes-Benz® es una marca registrada de sus respectivos propietarios. Sitio no oficial.</p>
+      <p>Mercedes-Benz® es una marca registrada de sus respectivos propietarios. Talleres Red Truck es un taller independiente, no oficial.</p>
     </div>
   </div>
 </footer>

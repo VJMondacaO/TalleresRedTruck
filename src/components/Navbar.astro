@@ -13,8 +13,13 @@ const links = [
 <header class="sticky top-0 z-40 bg-black/70 backdrop-blur-md border-b border-white/10">
   <nav class="container-x flex items-center justify-between h-16 lg:h-20" aria-label="Principal">
     <a href="#top" class="flex items-center gap-3 group" aria-label={site.name}>
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-red text-white shadow-[0_0_20px_-4px_rgba(220,38,38,0.6)] group-hover:bg-brand-redDeep transition-colors">
-        <i class="pi pi-truck text-lg" aria-hidden="true"></i>
+      <span class="inline-flex h-16 w-16 lg:h-20 lg:w-20 items-center justify-center overflow-visible -my-3">
+        <img
+          src="/logo-slow.gif"
+          alt=""
+          class="h-full w-full object-contain"
+          style="mix-blend-mode: screen; filter: brightness(1.25) contrast(1.2) saturate(1.1);"
+        />
       </span>
       <span class="font-extrabold text-white tracking-tight text-lg">
         Talleres <span class="text-brand-red">Red Truck</span>
@@ -37,7 +42,7 @@ const links = [
     <div class="hidden lg:flex items-center gap-3">
       <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz">
         <i class="pi pi-whatsapp" aria-hidden="true"></i>
-        WhatsApp
+        Cotizar por WhatsApp
       </a>
     </div>
 
@@ -68,7 +73,7 @@ const links = [
       <li class="pt-2">
         <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz w-full">
           <i class="pi pi-whatsapp" aria-hidden="true"></i>
-          WhatsApp
+          Cotizar por WhatsApp
         </a>
       </li>
     </ul>
