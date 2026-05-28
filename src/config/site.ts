@@ -11,7 +11,7 @@ export const site = {
   },
   email: 'contacto@talleresredtruck.cl',
   phone: '+56 2 0000 0000',
-  address: 'Av. Camino Industrial 1234, Santiago, Chile',
+  address: 'San Rafael, Región del Maule, Chile',
   social: {
     instagram: 'https://instagram.com/talleresredtruck',
     facebook: 'https://facebook.com/talleresredtruck',
