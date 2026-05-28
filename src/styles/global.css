@@ -8,14 +8,18 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-white text-brand-dark font-sans antialiased;
+    @apply bg-black text-white font-sans antialiased selection:bg-brand-red selection:text-white;
   }
   h1, h2, h3, h4 {
     @apply tracking-tight;
   }
   :focus-visible {
-    @apply outline-none ring-2 ring-brand-light ring-offset-2 ring-offset-white;
+    @apply outline-none ring-2 ring-brand-red ring-offset-2 ring-offset-black;
   }
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #0A0A0A; }
+  ::-webkit-scrollbar-thumb { background: #1F1F1F; border-radius: 6px; }
+  ::-webkit-scrollbar-thumb:hover { background: #DC2626; }
 }
 
 @layer components {
@@ -23,25 +27,41 @@
     @apply mx-auto w-full max-w-7xl px-6 lg:px-8;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors duration-200 disabled:opacity-50;
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-all duration-200 disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-brand-dark text-white hover:bg-brand-accent;
+    @apply btn bg-brand-red text-white hover:bg-brand-redDeep shadow-[0_8px_30px_-12px_rgba(220,38,38,0.65)] hover:shadow-[0_8px_30px_-6px_rgba(220,38,38,0.85)];
   }
   .btn-wtz {
-    @apply btn bg-[#25D366] text-white hover:bg-[#1ebe5c];
+    @apply btn bg-[#25D366] text-black hover:bg-[#1ebe5c];
   }
   .btn-ghost {
-    @apply btn border border-brand-dark/15 bg-white text-brand-dark hover:border-brand-dark/40;
+    @apply btn border border-white/15 bg-white/5 text-white hover:border-white/35 hover:bg-white/10 backdrop-blur-sm;
   }
   .section {
     @apply py-20 lg:py-28;
   }
   .eyebrow {
-    @apply text-xs font-semibold uppercase tracking-[0.18em] text-brand-accent;
+    @apply text-xs font-semibold uppercase tracking-[0.22em] text-brand-red;
+  }
+  .card-dark {
+    @apply rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm transition-all duration-300;
+  }
+  .card-dark:hover {
+    @apply border-brand-red/40 bg-white/[0.05];
+  }
+  .input-dark {
+    @apply w-full rounded-md border border-white/10 bg-black/40 px-3 py-2.5 text-sm text-white placeholder-white/40 focus:border-brand-red focus:outline-none focus:ring-2 focus:ring-brand-red/30;
+  }
+  .label-dark {
+    @apply block text-sm font-semibold text-white/85;
   }
 }
 
 /* Carrusel scrollbar oculto */
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.rt-frame-content {
+  margin-top: -100vh;
+}

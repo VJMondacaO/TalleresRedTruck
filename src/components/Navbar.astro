@@ -10,13 +10,13 @@ const links = [
 ];
 ---
 
-<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-brand-dark/10">
+<header class="sticky top-0 z-40 bg-black/70 backdrop-blur-md border-b border-white/10">
   <nav class="container-x flex items-center justify-between h-16 lg:h-20" aria-label="Principal">
-    <a href="#top" class="flex items-center gap-3" aria-label={site.name}>
-      <span class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-dark text-white">
+    <a href="#top" class="flex items-center gap-3 group" aria-label={site.name}>
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-red text-white shadow-[0_0_20px_-4px_rgba(220,38,38,0.6)] group-hover:bg-brand-redDeep transition-colors">
         <i class="pi pi-truck text-lg" aria-hidden="true"></i>
       </span>
-      <span class="font-extrabold text-brand-dark tracking-tight text-lg">
+      <span class="font-extrabold text-white tracking-tight text-lg">
         Talleres <span class="text-brand-red">Red Truck</span>
       </span>
     </a>
@@ -26,7 +26,7 @@ const links = [
         <li>
           <a
             href={l.href}
-            class="text-sm font-medium text-brand-dark/80 hover:text-brand-dark transition-colors"
+            class="relative text-sm font-medium text-white/70 hover:text-white transition-colors after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-brand-red after:transition-all hover:after:w-full"
           >
             {l.label}
           </a>
@@ -43,7 +43,7 @@ const links = [
 
     <button
       id="navToggle"
-      class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-brand-dark/15 text-brand-dark"
+      class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-white/15 text-white hover:bg-white/10 transition"
       aria-label="Abrir menú"
       aria-expanded="false"
       aria-controls="mobileMenu"
@@ -52,13 +52,13 @@ const links = [
     </button>
   </nav>
 
-  <div id="mobileMenu" class="lg:hidden hidden border-t border-brand-dark/10 bg-white">
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 bg-black/95 backdrop-blur-md">
     <ul class="container-x py-4 flex flex-col gap-1">
       {links.map((l) => (
         <li>
           <a
             href={l.href}
-            class="block py-3 text-base font-medium text-brand-dark/90 hover:text-brand-dark"
+            class="block py-3 text-base font-medium text-white/85 hover:text-white"
             data-mobile-link
           >
             {l.label}

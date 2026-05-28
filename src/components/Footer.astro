@@ -25,12 +25,12 @@ const cols = [
 ];
 ---
 
-<footer class="bg-brand-darker text-white">
+<footer class="bg-black/85 text-white backdrop-blur-sm border-t border-white/10">
   <div class="container-x py-16">
     <div class="grid lg:grid-cols-12 gap-10">
       <div class="lg:col-span-5">
-        <a href="#top" class="inline-flex items-center gap-3" aria-label={site.name}>
-          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-white text-brand-dark">
+        <a href="#top" class="inline-flex items-center gap-3 group" aria-label={site.name}>
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-brand-red text-white shadow-[0_0_20px_-4px_rgba(220,38,38,0.6)] group-hover:bg-brand-redDeep transition-colors">
             <i class="pi pi-truck text-lg" aria-hidden="true"></i>
           </span>
           <span class="font-extrabold text-lg">
@@ -48,7 +48,7 @@ const cols = [
             target="_blank"
             rel="noopener"
             aria-label="Instagram"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:border-brand-red hover:bg-brand-red/10 hover:text-brand-red transition"
           >
             <i class="pi pi-instagram" aria-hidden="true"></i>
           </a>
@@ -57,7 +57,7 @@ const cols = [
             target="_blank"
             rel="noopener"
             aria-label="Facebook"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:border-brand-red hover:bg-brand-red/10 hover:text-brand-red transition"
           >
             <i class="pi pi-facebook" aria-hidden="true"></i>
           </a>
@@ -66,7 +66,7 @@ const cols = [
             target="_blank"
             rel="noopener"
             aria-label="WhatsApp"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:bg-white/10 transition"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-md border border-white/15 hover:border-brand-red hover:bg-brand-red/10 hover:text-brand-red transition"
           >
             <i class="pi pi-whatsapp" aria-hidden="true"></i>
           </a>

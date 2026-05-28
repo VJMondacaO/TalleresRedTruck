@@ -2,51 +2,74 @@
 import { site, whatsappLink } from '../config/site';
 ---
 
-<section id="top" class="relative overflow-hidden bg-brand-dark text-white">
-  <!-- Fondo decorativo -->
+<section id="top" class="relative overflow-hidden bg-black text-white">
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-    <div class="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-brand-accent/40 blur-3xl"></div>
-    <div class="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-brand-light/30 blur-3xl"></div>
+    <img
+      src="/hero.png"
+      alt=""
+      class="h-full w-full object-contain opacity-70 scale-90"
+      style="object-position: 10% center;"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="absolute inset-0 bg-gradient-to-l from-black via-black/70 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black"></div>
+    <div class="absolute -top-32 -right-32 h-[420px] w-[420px] rounded-full bg-radial-red blur-2xl"></div>
     <div
-      class="absolute inset-0 opacity-[0.06]"
-      style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 48px 48px;"
+      class="absolute inset-0 bg-grid-faint"
+      style="background-size: 56px 56px;"
     ></div>
+
   </div>
 
-  <div class="container-x relative grid lg:grid-cols-12 gap-12 items-center py-20 lg:py-28">
-    <div class="lg:col-span-7">
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
+  <div class="container-x relative grid min-h-[92vh] items-center gap-12 py-24 lg:grid-cols-12">
+    <div class="lg:col-span-7 lg:col-start-6 text-right lg:ml-auto">
+      <div class="inline-flex items-center gap-2 rounded-full border border-brand-red/40 bg-brand-red/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-brand-red">
+        <span class="inline-block h-1.5 w-1.5 rounded-full bg-brand-red animate-pulse"></span>
+        Diagnóstico y mecánica pesada
+      </div>
+
+      <h1 class="mt-6 text-4xl font-extrabold leading-[1.02] sm:text-5xl lg:text-7xl">
         Taller de camiones
-        <span class="text-brand-red">Mercedes-Benz</span>.
-        En todo Chile.
+        <span class="block text-brand-red">Mercedes-Benz.</span>
+        <span class="block text-white/95">En todo Chile.</span>
       </h1>
 
-      <p class="mt-6 text-lg text-white/80 max-w-2xl">
+      <p class="mt-6 max-w-2xl ml-auto text-lg text-white/70 leading-relaxed">
         Mantención, diagnóstico y reparación para camiones Mercedes-Benz. Trabajamos con repuestos
         originales y atendemos emergencias en ruta.
       </p>
 
-      <div class="mt-8 flex flex-wrap gap-3">
+      <div class="mt-10 flex flex-wrap gap-3 justify-end">
         <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz">
           <i class="pi pi-whatsapp" aria-hidden="true"></i>
           Escríbenos por WhatsApp
         </a>
-        <a href="#servicios" class="btn border border-white/25 text-white hover:bg-white/10">
+        <a href="#servicios" class="btn-ghost">
           Ver servicios
+          <i class="pi pi-arrow-down text-xs" aria-hidden="true"></i>
         </a>
       </div>
-    </div>
 
-    <div class="lg:col-span-5">
-      <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 bg-brand-darker">
-        <img
-          src="https://placehold.co/800x600/0B1E3F/ffffff/png?text=Camion+Mercedes-Benz&font=inter"
-          alt="Camión Mercedes-Benz en taller Red Truck"
-          class="w-full h-full object-cover"
-          loading="eager"
-          decoding="async"
-        />
+      <div class="mt-14 flex flex-wrap items-center justify-end gap-x-10 gap-y-4 text-sm text-white/60">
+        <div class="flex items-center gap-2">
+          <i class="pi pi-check-circle text-brand-red" aria-hidden="true"></i>
+          Técnicos certificados MB
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="pi pi-check-circle text-brand-red" aria-hidden="true"></i>
+          Repuestos originales
+        </div>
+        <div class="flex items-center gap-2">
+          <i class="pi pi-check-circle text-brand-red" aria-hidden="true"></i>
+          Asistencia 24/7
+        </div>
       </div>
     </div>
+  </div>
+
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 hidden lg:flex flex-col items-center gap-2 text-white/40 text-xs">
+    <span class="uppercase tracking-[0.3em]">Scroll</span>
+    <span class="h-10 w-px bg-gradient-to-b from-brand-red to-transparent"></span>
   </div>
 </section>
