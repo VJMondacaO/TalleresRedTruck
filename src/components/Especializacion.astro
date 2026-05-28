@@ -1,0 +1,99 @@
+---
+import { whatsappLink } from '../config/site';
+
+const bullets = [
+  {
+    icon: 'pi-verified',
+    title: 'Técnicos certificados',
+    desc: 'Equipo formado bajo estándares Mercedes-Benz, con actualización constante en nuevos modelos.',
+  },
+  {
+    icon: 'pi-microchip',
+    title: 'Diagnóstico Xentry',
+    desc: 'Software oficial para lectura de módulos, codificaciones y programación de unidades.',
+  },
+  {
+    icon: 'pi-box',
+    title: 'Repuestos originales',
+    desc: 'Acceso a línea Mercedes-Benz Original Parts con trazabilidad y garantía de fábrica.',
+  },
+  {
+    icon: 'pi-shield',
+    title: 'Garantía escrita',
+    desc: 'Todos nuestros servicios incluyen garantía respaldada por escrito.',
+  },
+];
+
+const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
+---
+
+<section id="mercedes" class="section bg-white">
+  <div class="container-x">
+    <div class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-6 order-2 lg:order-1">
+        <p class="eyebrow">Especialización</p>
+        <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold text-brand-dark">
+          Nacimos para los <span class="text-brand-red">Mercedes-Benz</span>.
+        </h2>
+        <p class="mt-4 text-brand-dark/70">
+          Más de dos décadas trabajando exclusivamente con camiones Mercedes-Benz. Conocemos cada
+          modelo, cada generación electrónica y cada particularidad mecánica. Esa especialización
+          es la diferencia entre adivinar y resolver.
+        </p>
+
+        <ul class="mt-8 grid sm:grid-cols-2 gap-5">
+          {bullets.map((b) => (
+            <li class="flex gap-3">
+              <span class="flex-shrink-0 inline-flex h-10 w-10 items-center justify-center rounded-md bg-brand-dark text-white">
+                <i class={`pi ${b.icon}`} aria-hidden="true"></i>
+              </span>
+              <div>
+                <p class="font-bold text-brand-dark">{b.title}</p>
+                <p class="text-sm text-brand-dark/70 leading-relaxed">{b.desc}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        <div class="mt-10">
+          <a
+            href={whatsappLink('Hola, necesito servicio para mi Mercedes-Benz.')}
+            target="_blank"
+            rel="noopener"
+            class="btn-wtz"
+          >
+            <i class="pi pi-whatsapp" aria-hidden="true"></i>
+            Consultar por mi camión
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-6 order-1 lg:order-2">
+        <div class="relative">
+          <div class="rounded-2xl overflow-hidden border border-brand-dark/10 shadow-soft">
+            <img
+              src="https://placehold.co/900x700/061331/ffffff/png?text=Mercedes-Benz+Actros&font=inter"
+              alt="Camión Mercedes-Benz Actros en mantención"
+              class="w-full h-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+
+          <div class="mt-5 rounded-xl border border-brand-dark/10 bg-white p-5">
+            <p class="text-xs uppercase tracking-wider font-semibold text-brand-accent">
+              Modelos que atendemos
+            </p>
+            <ul class="mt-3 flex flex-wrap gap-2">
+              {modelos.map((m) => (
+                <li class="inline-flex items-center rounded-full bg-brand-dark/5 px-3 py-1 text-sm font-semibold text-brand-dark">
+                  {m}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
