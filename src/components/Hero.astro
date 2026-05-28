@@ -1,0 +1,84 @@
+---
+import { site, whatsappLink } from '../config/site';
+---
+
+<section id="top" class="relative overflow-hidden bg-brand-dark text-white">
+  <!-- Fondo decorativo -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-brand-accent/40 blur-3xl"></div>
+    <div class="absolute -bottom-40 -left-32 w-[420px] h-[420px] rounded-full bg-brand-light/30 blur-3xl"></div>
+    <div
+      class="absolute inset-0 opacity-[0.06]"
+      style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 48px 48px;"
+    ></div>
+  </div>
+
+  <div class="container-x relative grid lg:grid-cols-12 gap-12 items-center py-20 lg:py-28">
+    <div class="lg:col-span-7">
+      <span class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-3 py-1 text-xs font-semibold tracking-wide">
+        <i class="pi pi-verified text-brand-red" aria-hidden="true"></i>
+        Especialistas certificados Mercedes-Benz
+      </span>
+
+      <h1 class="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05]">
+        {site.tagline.split('Mercedes-Benz')[0]}
+        <span class="text-brand-red">Mercedes-Benz</span>
+        , en todo el país.
+      </h1>
+
+      <p class="mt-6 text-lg text-white/80 max-w-2xl">
+        Tu camión es tu trabajo. En Talleres Red Truck reducimos al mínimo tu tiempo fuera de ruta:
+        diagnóstico electrónico, repuestos originales y atención 24/7 con cobertura nacional.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz">
+          <i class="pi pi-whatsapp" aria-hidden="true"></i>
+          Escríbenos por WhatsApp
+        </a>
+        <a href="#servicios" class="btn border border-white/25 text-white hover:bg-white/10">
+          Ver servicios
+          <i class="pi pi-arrow-down" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <dl class="mt-12 grid grid-cols-3 gap-6 max-w-xl">
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-white/60">Experiencia</dt>
+          <dd class="mt-1 text-2xl font-extrabold">+20<span class="text-brand-red">a</span></dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-white/60">Cobertura</dt>
+          <dd class="mt-1 text-2xl font-extrabold">Nacional</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-white/60">Atención</dt>
+          <dd class="mt-1 text-2xl font-extrabold">24/7</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="lg:col-span-5">
+      <div class="relative">
+        <div class="aspect-[4/3] rounded-2xl overflow-hidden border border-white/10 shadow-soft bg-brand-darker">
+          <img
+            src="https://placehold.co/800x600/0B1E3F/ffffff/png?text=Camion+Mercedes-Benz&font=inter"
+            alt="Camión Mercedes-Benz en taller Red Truck"
+            class="w-full h-full object-cover"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        <div class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-xl bg-white text-brand-dark p-4 shadow-soft">
+          <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-red/10 text-brand-red">
+            <i class="pi pi-bolt text-lg" aria-hidden="true"></i>
+          </span>
+          <div class="text-sm">
+            <p class="font-bold">Respuesta rápida</p>
+            <p class="text-brand-dark/70">Te confirmamos disponibilidad en minutos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

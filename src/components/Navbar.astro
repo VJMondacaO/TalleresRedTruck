@@ -1,0 +1,93 @@
+---
+import { site, whatsappLink } from '../config/site';
+
+const links = [
+  { label: 'Servicios', href: '#servicios' },
+  { label: 'Cobertura', href: '#cobertura' },
+  { label: 'Mercedes-Benz', href: '#mercedes' },
+  { label: 'Instagram', href: '#instagram' },
+  { label: 'Contacto', href: '#contacto' },
+];
+---
+
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-brand-dark/10">
+  <nav class="container-x flex items-center justify-between h-16 lg:h-20" aria-label="Principal">
+    <a href="#top" class="flex items-center gap-3" aria-label={site.name}>
+      <span class="inline-flex h-9 w-9 items-center justify-center rounded-md bg-brand-dark text-white">
+        <i class="pi pi-truck text-lg" aria-hidden="true"></i>
+      </span>
+      <span class="font-extrabold text-brand-dark tracking-tight text-lg">
+        Talleres <span class="text-brand-red">Red Truck</span>
+      </span>
+    </a>
+
+    <ul class="hidden lg:flex items-center gap-8">
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class="text-sm font-medium text-brand-dark/80 hover:text-brand-dark transition-colors"
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="hidden lg:flex items-center gap-3">
+      <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz">
+        <i class="pi pi-whatsapp" aria-hidden="true"></i>
+        WhatsApp
+      </a>
+    </div>
+
+    <button
+      id="navToggle"
+      class="lg:hidden inline-flex items-center justify-center h-10 w-10 rounded-md border border-brand-dark/15 text-brand-dark"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+    >
+      <i class="pi pi-bars text-lg" aria-hidden="true"></i>
+    </button>
+  </nav>
+
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-brand-dark/10 bg-white">
+    <ul class="container-x py-4 flex flex-col gap-1">
+      {links.map((l) => (
+        <li>
+          <a
+            href={l.href}
+            class="block py-3 text-base font-medium text-brand-dark/90 hover:text-brand-dark"
+            data-mobile-link
+          >
+            {l.label}
+          </a>
+        </li>
+      ))}
+      <li class="pt-2">
+        <a href={whatsappLink()} target="_blank" rel="noopener" class="btn-wtz w-full">
+          <i class="pi pi-whatsapp" aria-hidden="true"></i>
+          WhatsApp
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      const open = menu.classList.toggle('hidden') === false;
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('[data-mobile-link]').forEach((l) => {
+      l.addEventListener('click', () => {
+        menu.classList.add('hidden');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
