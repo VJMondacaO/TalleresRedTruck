@@ -71,36 +71,15 @@ const posts = [
           <i class="pi pi-instagram" aria-hidden="true"></i>
           Seguir en Instagram
         </a>
-        <div class="inline-flex rounded-md border border-white/15 overflow-hidden">
-          <button
-            type="button"
-            data-carousel-prev
-            class="h-11 w-11 inline-flex items-center justify-center text-white hover:bg-brand-red/20 disabled:opacity-30 transition-colors"
-            aria-label="Anterior"
-          >
-            <i class="pi pi-arrow-left" aria-hidden="true"></i>
-          </button>
-          <button
-            type="button"
-            data-carousel-next
-            class="h-11 w-11 inline-flex items-center justify-center text-white hover:bg-brand-red/20 border-l border-white/15 disabled:opacity-30 transition-colors"
-            aria-label="Siguiente"
-          >
-            <i class="pi pi-arrow-right" aria-hidden="true"></i>
-          </button>
-        </div>
       </div>
     </div>
 
-    <div class="relative mt-10">
-      <div
-        data-carousel-track
-        class="no-scrollbar flex gap-5 overflow-x-auto snap-x snap-mandatory scroll-smooth pb-2"
-      >
-        {posts.map((p) => (
+    <div class="relative mt-10 marquee-mask">
+      <div class="marquee flex w-max gap-5">
+        {[...posts, ...posts].map((p, idx) => (
           <article
-            class="snap-start shrink-0 w-[280px] sm:w-[320px] rounded-xl overflow-hidden border border-white/10 bg-black/60 shadow-soft backdrop-blur-sm hover:border-brand-red/40 transition-all duration-300"
-            data-carousel-item
+            class="shrink-0 w-[280px] sm:w-[320px] rounded-xl overflow-hidden border border-white/10 bg-black/60 shadow-soft backdrop-blur-sm hover:border-brand-red/40 transition-all duration-300"
+            aria-hidden={idx >= posts.length ? 'true' : undefined}
           >
             <a href={site.social.instagram} target="_blank" rel="noopener" class="block group">
               <div class="aspect-square overflow-hidden bg-black relative">
@@ -138,28 +117,25 @@ const posts = [
   </div>
 </section>
 
-<script>
-  const track = document.querySelector<HTMLElement>('[data-carousel-track]');
-  const prev = document.querySelector<HTMLButtonElement>('[data-carousel-prev]');
-  const next = document.querySelector<HTMLButtonElement>('[data-carousel-next]');
-
-  if (track && prev && next) {
-    const step = () => {
-      const item = track.querySelector<HTMLElement>('[data-carousel-item]');
-      const gap = parseInt(getComputedStyle(track).columnGap || '20', 10);
-      return (item?.offsetWidth ?? 300) + gap;
-    };
-
-    const update = () => {
-      const max = track.scrollWidth - track.clientWidth - 1;
-      prev.disabled = track.scrollLeft <= 0;
-      next.disabled = track.scrollLeft >= max;
-    };
-
-    prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }));
-    next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }));
-    track.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
-    update();
+<style>
+  .marquee {
+    animation: marquee-scroll 60s linear infinite;
+    will-change: transform;
   }
-</script>
+  .marquee:hover {
+    animation-play-state: paused;
+  }
+  @keyframes marquee-scroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(calc(-50% - 10px)); }
+  }
+  .marquee-mask {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee { animation: none; }
+  }
+</style>
+
