@@ -6,27 +6,27 @@ import actrosImage from '../assets/especializacion/actros.webp';
 const bullets = [
   {
     icon: 'pi-users',
-    title: 'Experiencia real en terreno',
-    desc: 'Conocimiento formado trabajando con camiones y maquinaria pesada en condiciones exigentes.',
+    title: 'Ingeniería y experiencia en terreno',
+    desc: 'Formación en maquinaria, vehículos automotrices y sistemas electrónicos aplicada a trabajo pesado.',
   },
   {
     icon: 'pi-microchip',
-    title: 'Diagnóstico con criterio',
+    title: 'Scanner y electrónica diésel',
     desc: 'Combinamos lectura electrónica, revisión mecánica y experiencia práctica para llegar al origen de la falla.',
   },
   {
     icon: 'pi-box',
     title: 'Especialidad Mercedes-Benz',
-    desc: 'Conocemos modelos, sistemas y fallas frecuentes de camiones Mercedes-Benz de trabajo pesado.',
+    desc: 'Mercedes-Benz es nuestra especialidad más fuerte, con conocimiento de modelos, sistemas y fallas frecuentes.',
   },
   {
     icon: 'pi-shield',
-    title: 'Trabajo respaldado',
-    desc: 'Cada servicio se conversa con claridad antes de avanzar, dejando registro del trabajo realizado.',
+    title: 'Trabajo multimarca',
+    desc: 'También atendemos Volvo, Scania, camiones americanos, chinos, pesados y semi pesados.',
   },
 ];
 
-const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
+const marcas = ['Mercedes-Benz', 'Volvo', 'Scania', 'Americanos', 'Chinos', 'Camiones pesados', 'Semi pesados'];
 ---
 
 <section id="mercedes" class="section bg-transparent text-white">
@@ -35,13 +35,13 @@ const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
       <div class="lg:col-span-6 order-2 lg:order-1">
         <p class="eyebrow">Especialización</p>
         <h2 class="mt-3 text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white leading-[1.05]">
-          Mercedes-Benz no es una línea más.
-          <span class="text-brand-red">Es nuestra especialidad.</span>
+          Especialistas en Mercedes-Benz.
+          <span class="text-brand-red">Trabajamos multimarca.</span>
         </h2>
         <p class="mt-5 text-white/65 leading-relaxed">
-          Red Truck nace de años de trabajo directo con camiones Mercedes-Benz en el norte de Chile,
-          donde la maquinaria pesada exige soluciones rápidas, precisas y bien hechas. Hoy esa
-          experiencia está en San Rafael, al servicio de camiones de trabajo de todo el país.
+          Red Truck combina ingeniería en maquinaria, vehículos automotrices y sistemas electrónicos
+          con años de experiencia en camiones pesados y semi pesados. Mercedes-Benz es nuestra
+          especialidad principal, pero también trabajamos Volvo, Scania, americanos y chinos.
         </p>
 
         <ul class="mt-10 grid sm:grid-cols-2 gap-5">
@@ -60,7 +60,7 @@ const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
 
         <div class="mt-10">
           <a
-            href={whatsappLink('Hola, necesito coordinar servicio para mi camión Mercedes-Benz.')}
+            href={whatsappLink('Hola, necesito coordinar servicio para mi camión o maquinaria.')}
             target="_blank"
             rel="noopener"
             class="btn-wtz"
@@ -77,7 +77,7 @@ const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
           <div class="relative rounded-2xl overflow-hidden border border-white/10 shadow-soft">
             <Image
               src={actrosImage}
-              alt="Camión Mercedes-Benz en revisión mecánica"
+              alt="Camión pesado en revisión mecánica"
               widths={[480, 720, 900]}
               sizes="(max-width: 1024px) 90vw, 540px"
               formats={['avif', 'webp']}
@@ -90,10 +90,10 @@ const modelos = ['Actros', 'Axor', 'Atego', 'Accelo', 'Arocs', 'Atron'];
 
           <div class="relative mt-5 rounded-xl border border-white/10 bg-black/50 p-5 backdrop-blur-sm">
             <p class="text-xs uppercase tracking-[0.22em] font-semibold text-brand-red">
-              Modelos Mercedes-Benz que atendemos
+              Marcas y equipos que atendemos
             </p>
             <ul class="mt-3 flex flex-wrap gap-2">
-              {modelos.map((m) => (
+              {marcas.map((m) => (
                 <li class="inline-flex items-center rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-sm font-semibold text-white hover:border-brand-red/50 hover:bg-brand-red/10 transition-colors">
                   {m}
                 </li>

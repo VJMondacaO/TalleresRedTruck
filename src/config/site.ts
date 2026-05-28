@@ -1,13 +1,13 @@
 export const site = {
   name: 'Talleres Red Truck',
   brand: 'Red Truck',
-  tagline: 'Especialistas en camiones Mercedes-Benz en San Rafael',
+  tagline: 'Camiones pesados, semi pesados y electrónica diésel en San Rafael',
   description:
-    'Taller mecánico especializado en camiones Mercedes-Benz, ubicado en San Rafael, Región del Maule. Diagnóstico, mantención y reparación de maquinaria pesada para transportistas de todo Chile.',
+    'Taller mecánico multimarca en San Rafael, Región del Maule. Especialistas en Mercedes-Benz, scanner, electrónica diésel, reparación de camiones pesados y semi pesados, grúas, transporte de maquinaria y arriendo de camionetas.',
   whatsapp: {
     number: '56900000000',
     display: '+56 9 0000 0000',
-    message: 'Hola Talleres Red Truck, necesito coordinar una revisión para mi camión Mercedes-Benz.',
+    message: 'Hola Talleres Red Truck, necesito coordinar una revisión para mi camión o maquinaria.',
   },
   email: 'contacto@talleresredtruck.cl',
   phone: '+56 2 0000 0000',
